@@ -4,25 +4,37 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float movement;
-    [SerializeField] private Rigidbody rigidBody;
+    [Header("Movement data")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
+    
+    private Rigidbody rigidBody;
+    private float verticalInput;
+    private float horizontalInput;
 
-    [SerializeField] private float verticalInput;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (verticalInput < 0 )
+        {
+            horizontalInput = -Input.GetAxisRaw("Horizontal");
+        }
     }
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = new Vector3 (0, 0, movement * verticalInput);
+        Vector3 movement = transform.forward * moveSpeed * verticalInput;
+
+        rigidBody.velocity = movement;
+
+        transform.Rotate(0, rotateSpeed * horizontalInput, 0);
     }
 }
