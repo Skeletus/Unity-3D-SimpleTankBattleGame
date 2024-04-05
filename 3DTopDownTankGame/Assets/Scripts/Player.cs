@@ -8,7 +8,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
 
-    [Space]
+    [Header("Tower data")]
+    [SerializeField] private Transform tankTowerTransform;
+    [SerializeField] private float towerRotationSpeed;
+
+    [Header("Aim data")]
     [SerializeField] private LayerMask whatIsAimMask;
     [SerializeField] private Transform aimTransform;
     
@@ -25,11 +29,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         UpdateAim();
+        CheckInputs();
+    }
 
+    private void CheckInputs()
+    {
         verticalInput = Input.GetAxisRaw("Vertical");
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if (verticalInput < 0 )
+        if (verticalInput < 0)
         {
             horizontalInput = -Input.GetAxisRaw("Horizontal");
         }
@@ -37,11 +45,29 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 movement = transform.forward * moveSpeed * verticalInput;
+        ApplyMovement();
+        ApplyBodyRotation();
+        ApplyTowerRotation();
+    }
 
-        rigidBody.velocity = movement;
+    private void ApplyTowerRotation()
+    {
+        Vector3 direction = aimTransform.position - tankTowerTransform.position;
+        direction.y = 0;
 
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        tankTowerTransform.rotation = Quaternion.RotateTowards(tankTowerTransform.rotation, targetRotation, towerRotationSpeed);
+    }
+
+    private void ApplyBodyRotation()
+    {
         transform.Rotate(0, rotateSpeed * horizontalInput, 0);
+    }
+
+    private void ApplyMovement()
+    {
+        Vector3 movement = transform.forward * moveSpeed * verticalInput;
+        rigidBody.velocity = movement;
     }
 
     private void UpdateAim()
