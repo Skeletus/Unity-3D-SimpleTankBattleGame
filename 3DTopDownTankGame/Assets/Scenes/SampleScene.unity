@@ -855,7 +855,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 887893543}
+  - {fileID: 1728475528}
   m_Father: {fileID: 2036265348}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1728475527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728475528}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1728475528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728475527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0.02, z: 2.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1564319333}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036265347
@@ -935,6 +967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9efabc2691af345a9cb8cc78a97274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunPoint: {fileID: 1728475528}
+  bulletSpeed: 17
+  bulletPrefab: {fileID: 4223390301125271309, guid: 1c3f082f912328345b600dab4f4c0110, type: 3}
   moveSpeed: 3
   rotateSpeed: 2
   tankTowerTransform: {fileID: 1564319333}
