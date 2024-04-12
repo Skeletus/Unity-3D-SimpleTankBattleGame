@@ -93,13 +93,13 @@ public class BTreeNode : MonoBehaviour
         for (int j = 0; j < t - 1; j++)
             z.keys.Add(bTreeNode.keys[j + t]);
 
-        if (!y.leaf)
+        if (!bTreeNode.leaf)
         {
             for (int j = 0; j < t; j++)
                 z.children.Add(bTreeNode.children[j + t]);
         }
 
-        y.n = t - 1;
+        bTreeNode.n = t - 1;
 
         children.Insert(i + 1, z);
 
