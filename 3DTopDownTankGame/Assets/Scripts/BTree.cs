@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTree : MonoBehaviour
+public class BTree
 {
     private BTreeNode root;
     private int t; // Minimum degree

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTreeNode : MonoBehaviour
+public class BTreeNode
 {
     [SerializeField] private int t; // Minimum degree (defines the range for the number of keys)
     public List<int> keys; // List of keys
@@ -40,7 +40,7 @@ public class BTreeNode : MonoBehaviour
                 children[i].Traverse();
             }
 
-            Console.Write(" " + keys[i]);
+            Debug.Log(" " + keys[i]);
         }
 
         // Print the subtree rooted with the last child
