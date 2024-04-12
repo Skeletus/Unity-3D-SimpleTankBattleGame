@@ -6,9 +6,9 @@ using UnityEngine;
 public class BTreeNode : MonoBehaviour
 {
     [SerializeField] private int t; // Minimum degree (defines the range for the number of keys)
-    [SerializeField] private List<int> keys; // List of keys
-    [SerializeField] private List<BTreeNode> children; // List of pointers to children
-    [SerializeField] private int n; // Current number of keys
+    public List<int> keys; // List of keys
+    public List<BTreeNode> children; // List of pointers to children
+    public int n; // Current number of keys
     [SerializeField] private bool leaf; // Is true when the node is a leaf
 
     public BTreeNode(int _t, bool _leaf)
@@ -18,6 +18,11 @@ public class BTreeNode : MonoBehaviour
         n = 0;
         keys = new List<int>(2 * t - 1);
         children = new List<BTreeNode>(2 * t);
+    }
+
+    public void SetN(int value)
+    {
+        n = value;
     }
 
     /// <summary>
@@ -85,7 +90,7 @@ public class BTreeNode : MonoBehaviour
     /// </summary>
     /// <param name="i"></param>
     /// <param name="bTreeNode"></param>
-    private void SplitChild(int i, BTreeNode bTreeNode)
+    public void SplitChild(int i, BTreeNode bTreeNode)
     {
         BTreeNode z = new BTreeNode(bTreeNode.t, bTreeNode.leaf);
         z.n = t - 1;
