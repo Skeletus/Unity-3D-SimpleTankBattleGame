@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
         GetInput();
         MovePlayer();
         CheckPlayerMovement();
+        animator.SetBool("IsWalking", isWalking);
     }
 
     private void GetInput()
