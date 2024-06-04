@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 20f;
+    [SerializeField] private float momentumDamping = 5f;
 
     private CharacterController characterController;
     private Animator animator;
@@ -31,11 +32,20 @@ public class PlayerMove : MonoBehaviour
 
     private void GetInput()
     {
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        inputVector.Normalize();
-
-        inputVector = transform.TransformDirection(inputVector);
-
+        // if we are holding down WASD 
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            inputVector.Normalize();
+            inputVector = transform.TransformDirection(inputVector);
+        }
+        else
+        {
+            // if we are not lerp it towards zero
+            inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+        }
+        
         movementVector = (inputVector * playerSpeed) + (Vector3.up * gravity);
     }
 
