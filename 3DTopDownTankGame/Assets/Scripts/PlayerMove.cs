@@ -7,20 +7,25 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float playerSpeed = 20f;
 
     private CharacterController characterController;
+    private Animator animator;
 
     private Vector3 inputVector;
     private Vector3 movementVector;
     private float gravity = -10f;
 
+    private bool isWalking;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         GetInput();
         MovePlayer();
+        CheckPlayerMovement();
     }
 
     private void GetInput()
@@ -36,5 +41,17 @@ public class PlayerMove : MonoBehaviour
     private void MovePlayer()
     {
         characterController.Move(movementVector * Time.deltaTime);
+    }
+
+    private void CheckPlayerMovement()
+    {
+        if (characterController.velocity.magnitude > 0.1f)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
     }
 }
