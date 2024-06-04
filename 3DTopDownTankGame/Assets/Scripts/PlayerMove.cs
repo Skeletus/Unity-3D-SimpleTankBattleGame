@@ -26,7 +26,6 @@ public class PlayerMove : MonoBehaviour
     {
         GetInput();
         MovePlayer();
-        CheckPlayerMovement();
         animator.SetBool("IsWalking", isWalking);
     }
 
@@ -39,11 +38,14 @@ public class PlayerMove : MonoBehaviour
             inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             inputVector.Normalize();
             inputVector = transform.TransformDirection(inputVector);
+
+            isWalking = true;
         }
         else
         {
             // if we are not lerp it towards zero
             inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+            isWalking = false;
         }
         
         movementVector = (inputVector * playerSpeed) + (Vector3.up * gravity);
@@ -52,17 +54,5 @@ public class PlayerMove : MonoBehaviour
     private void MovePlayer()
     {
         characterController.Move(movementVector * Time.deltaTime);
-    }
-
-    private void CheckPlayerMovement()
-    {
-        if (characterController.velocity.magnitude > 0.1f)
-        {
-            isWalking = true;
-        }
-        else
-        {
-            isWalking = false;
-        }
     }
 }
