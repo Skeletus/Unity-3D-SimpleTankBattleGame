@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128496827}
   - component: {fileID: 128496828}
+  - component: {fileID: 128496829}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -168,6 +169,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &128496829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128496826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec5ce3ed39237443b3bcba1587faca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
+  verticalRange: 20
 --- !u!1 &710112897
 GameObject:
   m_ObjectHideFlags: 0
