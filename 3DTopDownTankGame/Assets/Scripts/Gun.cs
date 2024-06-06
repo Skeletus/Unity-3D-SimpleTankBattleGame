@@ -23,10 +23,22 @@ public class Gun : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // add potential enemy to shoot
+        Enemy enemy = other.transform.GetComponent<Enemy>();
+
+        if (enemy)
+        {
+            // add 
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         // remove potential enemy to shoot
+        Enemy enemy = other.transform.GetComponent<Enemy>();
+
+        if (enemy)
+        {
+            // remove 
+        }
     }
 }
