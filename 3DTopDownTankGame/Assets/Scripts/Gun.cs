@@ -19,4 +19,14 @@ public class Gun : MonoBehaviour
         boxColliderTrigger.size = new Vector3(1, verticalRange, range);
         boxColliderTrigger.center = new Vector3(0, 0, range * 0.5f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // add potential enemy to shoot
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // remove potential enemy to shoot
+    }
 }
