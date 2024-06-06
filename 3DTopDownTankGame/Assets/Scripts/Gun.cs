@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float verticalRange = 20f;
 
     private BoxCollider boxColliderTrigger;
+    [SerializeField] private EnemyManager enemyManager;
 
     private void Awake()
     {
@@ -25,9 +26,10 @@ public class Gun : MonoBehaviour
         // add potential enemy to shoot
         Enemy enemy = other.transform.GetComponent<Enemy>();
 
-        if (enemy)
+        if (enemy != null)
         {
             // add 
+            enemyManager.AddEnemy(enemy);
         }
     }
 
@@ -36,9 +38,10 @@ public class Gun : MonoBehaviour
         // remove potential enemy to shoot
         Enemy enemy = other.transform.GetComponent<Enemy>();
 
-        if (enemy)
+        if (enemy != null)
         {
             // remove 
+            enemyManager.RemoveEnemy(enemy);
         }
     }
 }
