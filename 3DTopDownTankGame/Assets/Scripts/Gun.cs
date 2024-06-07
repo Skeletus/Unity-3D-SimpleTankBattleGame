@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float range = 20f;
     [SerializeField] private float verticalRange = 20f;
     [SerializeField] private float fireRate = 10f;
+    [SerializeField] private float damage = 5f;
     private float nextTimeToFire;
 
     private BoxCollider boxColliderTrigger;
@@ -34,9 +35,10 @@ public class Gun : MonoBehaviour
     private void Fire()
     {
         // damage enemies 
-        foreach(var Enemies in enemyManager.enemiesInTrigger)
+        foreach(Enemy enemy in enemyManager.enemiesInTrigger)
         {
             // damage each enemy in list
+            enemy.TakeDamage(damage);
         }
 
         // reset time
