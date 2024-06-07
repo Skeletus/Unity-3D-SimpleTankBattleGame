@@ -34,6 +34,10 @@ public class Gun : MonoBehaviour
     private void Fire()
     {
         // damage enemies 
+        foreach(var Enemies in enemyManager.enemiesInTrigger)
+        {
+            // damage each enemy in list
+        }
 
         // reset time
         nextTimeToFire = Time.time + fireRate;
