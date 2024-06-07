@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   verticalRange: 20
+  fireRate: 1
   enemyManager: {fileID: 1980532669}
 --- !u!1 &251266304
 GameObject:
