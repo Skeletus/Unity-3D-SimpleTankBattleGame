@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!54 &67304050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!54 &251266306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -474,6 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!54 &315533587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -602,6 +608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!54 &678335718
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1009,6 +1017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!54 &1096377727
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1742,6 +1752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b631cd22e3ae6e449ee13455f3cd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1980532669}
+  enemyHealth: 5
 --- !u!1 &1980532667
 GameObject:
   m_ObjectHideFlags: 0

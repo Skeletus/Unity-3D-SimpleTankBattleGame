@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private float enemyHealth = 5f;
+
+    private void Update()
     {
-        
+        if (enemyHealth <= 0)
+        {
+            enemyManager.RemoveEnemy(this);
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TakeDamage(float damage)
     {
-        
+        enemyHealth -= damage;
     }
 }
