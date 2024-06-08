@@ -314,7 +314,8 @@ MonoBehaviour:
   range: 20
   verticalRange: 20
   fireRate: 1
-  damage: 5
+  bigDamage: 5
+  smallDamage: 2
   enemyManager: {fileID: 1980532669}
   obstaclesLayerMask:
     serializedVersion: 2
