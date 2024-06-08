@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 128496827}
   - component: {fileID: 128496828}
   - component: {fileID: 128496829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,11 @@ MonoBehaviour:
   range: 20
   verticalRange: 20
   fireRate: 1
+  damage: 5
   enemyManager: {fileID: 1980532669}
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &251266304
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710112897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.27, y: 0.518, z: 8.42}
+  m_LocalPosition: {x: -5.27, y: 0.518, z: 6.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,8 +1145,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173301215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 0.518, z: 8.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.1223, y: 2.1444, z: 8.42}
+  m_LocalScale: {x: 7.3608646, y: 4.2527, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1607023132}

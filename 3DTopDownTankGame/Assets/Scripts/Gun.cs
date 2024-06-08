@@ -11,7 +11,9 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire;
 
     private BoxCollider boxColliderTrigger;
+
     [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private LayerMask obstaclesLayerMask;
 
     private void Awake()
     {
@@ -37,8 +39,21 @@ public class Gun : MonoBehaviour
         // damage enemies 
         foreach(Enemy enemy in enemyManager.enemiesInTrigger)
         {
-            // damage each enemy in list
-            enemy.TakeDamage(damage);
+            Vector3 direction = enemy.transform.position - transform.position;
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, direction, out hit, range * 1.5f, obstaclesLayerMask))
+            {
+                if (hit.transform == enemy.transform)
+                {
+                    // damage each enemy in list
+                    enemy.TakeDamage(damage);
+
+                    Debug.DrawRay(transform.position, direction, Color.green);
+                }
+            }
+
+            
         }
 
         // reset time
