@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private float enemyHealth = 5f;
+    [SerializeField] private GameObject gunHitEffect;
 
     private void Update()
     {
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
     }
 }
