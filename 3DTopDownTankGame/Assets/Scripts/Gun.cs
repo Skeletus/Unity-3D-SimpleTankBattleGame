@@ -7,7 +7,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private float range = 20f;
     [SerializeField] private float verticalRange = 20f;
     [SerializeField] private float fireRate = 10f;
-    [SerializeField] private float damage = 5f;
+    [SerializeField] private float bigDamage = 5f;
+    [SerializeField] private float smallDamage = 2f;
     private float nextTimeToFire;
 
     private BoxCollider boxColliderTrigger;
@@ -39,6 +40,7 @@ public class Gun : MonoBehaviour
         // damage enemies 
         foreach(Enemy enemy in enemyManager.enemiesInTrigger)
         {
+            // get direction to the enemy
             Vector3 direction = enemy.transform.position - transform.position;
             RaycastHit hit;
 
@@ -46,10 +48,23 @@ public class Gun : MonoBehaviour
             {
                 if (hit.transform == enemy.transform)
                 {
-                    // damage each enemy in list
-                    enemy.TakeDamage(damage);
+                    // range check
+                    float distance = Vector3.Distance(enemy.transform.position, transform.position);
 
-                    Debug.DrawRay(transform.position, direction, Color.green);
+                    if (distance > range * 0.5f)
+                    {
+                        // damage enemy small
+                        Debug.Log("Dealing small damage");
+                        enemy.TakeDamage(smallDamage);
+                    }
+                    else
+                    {
+                        // damage enemy big
+                        Debug.Log("Dealing big damage");
+                        enemy.TakeDamage(bigDamage);
+                    }
+
+                    //Debug.DrawRay(transform.position, direction, Color.green);
                 }
             }
 
