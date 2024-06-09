@@ -37,6 +37,10 @@ public class Gun : MonoBehaviour
 
     private void Fire()
     {
+        // play test audio
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Play();
+
         // damage enemies 
         foreach(Enemy enemy in enemyManager.enemiesInTrigger)
         {
